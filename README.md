@@ -12,13 +12,20 @@ A curated list of awesome ⚙️Assembler for x86_64/x86/aarch64/aarch/risc-v/et
   - [Books](#books)
   - [Assemblers](#assemblers)
     - [Self-hosted hex assemblers](#self-hosted-hex-assemblers)
+  - [Bootstrap](#bootstrap)
   - [Disasembler](#disasembler)
   - [Debuger](#debuger)
   - [Soft](#soft)
+    - [Boot sector bootstraps](#boot-sector-bootstraps)
+    - [Communications](#communications)
+    - [Cryptography](#cryptography)
     - [Shells](#shells)
     - [Social Media](#social-media)
     - [WebServer](#webserver)
     - [Webapp](#webapp)
+    - [Webtools](#webtools)
+  - [Libs](#libs)
+- [Hack](#hack)
   - [External links](#external-links)
 </details>
 
@@ -31,6 +38,8 @@ A curated list of awesome ⚙️Assembler for x86_64/x86/aarch64/aarch/risc-v/et
 <img height="50px" width="36px" hspace="10px" src="https://m.media-amazon.com/images/I/41+MUyWhvHL._SX258_BO1,204,203,200_.jpg">[Assembly Language for x86 Processors, 7th edition](https://www.amazon.com/Assembly-Language-x86-Processors-7th/dp/0133769402) by **Kip Irvine** 
 
 <img height="50px" width="36px" hspace="10px" src="https://nostarch.com/sites/default/files/styles/uc_product_full/public/assembly2_big.png?itok=wSMa6PaB">[The Art of Assembly Language, 2nd Edition](http://www.nostarch.com/assembly2.htm) by **Randall Hyde**
+
+<img height="50px" width="36px" hspace="10px" src="https://learning.oreilly.com/library/cover/9780133084993/250w/"> [Hackers Delight](https://www.oreilly.com/library/view/hackers-delight-second/9780133084993/) by **Henry S. Warren**
 
 ## Assemblers
 > [Gnu Assembler (GAS)](http://www.gnu.org/software/binutils/)
@@ -59,7 +68,12 @@ is an x86-64 assembler embedded in Python which targets high-performance computi
 
 > [bcompiler](https://github.com/certik/bcompiler) — Another experiment in creating a compiler from nothing, via a self-hosted assembler
 
+## Bootstrap
+
+* [live-bootstrap](https://github.com/fosslinux/live-bootstrap) — We have a currently, fully-functioning chain of bootstrapping from the 357-byte hex0 seed to a complete GCC compiler and hence a full Linux operating system. From there, it is trivial to move to other UNIXes.
+
 ## Disasembler
+* [capstone](http://www.capstone-engine.org) — is a lightweight multi-platform, multi-architecture disassembly framework. Our target is to make Capstone the ultimate disassembly engine for binary analysis and reversing in the security community.
 * [IDA PRO](https://www.hex-rays.com/ida-pro) — 32/64-bit proprietary software. [wiki](http://en.wikipedia.org/wiki/Interactive_Disassembler)
 * [IDA Free](https://www.hex-rays.com/ida-free) — The free version of IDA
 ## Debuger
@@ -68,16 +82,43 @@ is an x86-64 assembler embedded in Python which targets high-performance computi
 * [Plasma](https://github.com/plasma-disassembler/plasma) — Plasma is an interactive disassembler for x86/ARM/MIPS. It can generates indented pseudo-code with colored syntax.
 
 ## Soft
+
+### Boot sector bootstraps 
+* [SectorLISP](https://justine.lol/sectorlisp2/) — LISP with GC in 436 bytes
+* [asmc](https://gitlab.com/giomasce/asmc) — Based on 6KB seed of G lang, Gets to C quickly
+### Communications
+* [sshtalk](https://2ton.com.au/sshtalk/) — is our text-based chat program. It offers a highly secure, ephemeral (not stored, with no records) way to chat with anyone via the SSH2 protocol. This product will most likely have more mass-appeal to the tech community as it operates within a terminal screen (where they live at work). 
+### Cryptography
+* [dhtool](https://2ton.com.au/dhtool/) — is our Diffie-Hellman parameter generator, verifier, and conversion utility. It offers multi-CPU capability to safe prime searching, and verification services to existing DH-based systems.
+* [toplip](https://2ton.com.au/toplip/) — "the best place to hide something is right under your nose." With this in mind, we designed this product to allow clients to cryptographically 'hide' information, optionally within a common image type (PNG/JPG). It offers optional plausible deniability, multiple passphrase protection, no easily identifiable output markers, and simplified protection against brute force recovery attacks.
 ### Shells
 * [x86-asm-sysh](https://github.com/StefanoBelli/sysh) — A weird assembly coded shell
 ### Social Media
+* [hnwatch](https://2ton.com.au/hnwatch/) — is our terminal-based HackerNews real-time watcher/reader, useful for keeping an eye on Hacker News without using a browser for those that live in terminal windows.
 * [x86_64-asm-tgbot](https://github.com/StefanoBelli/x86_64-asm-tgbot) — Attempting to build an x86_64 assembly telegram bot with a bit of C
 ### WebServer
-* [RWASA]() — is our full-featured, high performance, scalable web server designed to compete with the likes of nginx. It has been built from the ground-up with no external library dependencies entirely in <b>x86_64</b> assembly language, and is the result of many years' experience with high volume web environments.
+* [RWASA](https://2ton.com.au/rwasa/) — is our full-featured, high performance, scalable web server designed to compete with the likes of nginx. It has been built from the ground-up with no external library dependencies entirely in <b>x86_64</b> assembly language, and is the result of many years' experience with high volume web environments.
 * [asmttpd](https://github.com/nemasu/asmttpd) — Web server for Linux written in amd64 assembly
 ### Webapp
 * [AsmBB](https://asmbb.org/what-is-asmbb.1/) — is ultrafast web forum, written entirely in assembly language.
+### Webtools
+* [webslap](https://2ton.com.au/webslap/) — is the client (browser) side of our library and web communications. It is perfect for reporting on what happens, when it happens and what changed within your web operations and is a great tool for quality assurance purposes. There are numerous testing products available at present, however none (that we found) have the ability to test real-world scenarios.
 
+## Libs
+> [HeavyThing](https://2ton.com.au/HeavyThing/) — full featured x86_64 assembly language library. Includes:
+> 
+> * Unicode strings
+> * Cryptography
+> * VSDO
+> * Web server/client
+> * SSH2 client/server
+> * Big integer
+> * Epoll
+> * etc 
+
+# Hack
+
+* [sandsifter](https://github.com/Battelle/sandsifter) — The x86 processor fuzzer. 
 
 ## External links
 * [Unix Assembly Language Programming](http://www.int80h.org)
@@ -95,7 +136,7 @@ is an x86-64 assembler embedded in Python which targets high-performance computi
 * [GCC-Inline-Assembly-HOWTO](http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
 * [Introductory Intel x86: Architecture, Assembly, Applications & Alliteration](http://opensecuritytraining.info/IntroX86.html)
 * [PC Assembly Language](http://pacman128.github.io/pcasm/)
-
+* [Intel 80x86 Assembly Language OpCodes](http://www.mathemainzel.info/files/x86asmref.html)
 ----------
 
 
